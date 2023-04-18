@@ -1,6 +1,5 @@
 # Prerequisites
 *.d
-*idea
 
 # Object files
 *.o
@@ -36,12 +35,19 @@
 *.x86_64
 *.hex
 
+# Folder
+.idea/
+out/
+
+# Compiled files
+*.class
+
 # Debug files
 *.dSYM/
 *.su
 *.idb
 *.pdb
-*.DS_Store
+.DS_Store
 
 # Kernel Module Compile Results
 *.mod*

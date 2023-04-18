@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd" >
+    <!-- определения компонентов здесь -->
+
+<!--    <bean id="hikariDataSource" class="com.zaxxer.hikari.HikariDataSource">-->
+<!--        <property name="driverClassName" value="${db.driver.name}"/>-->
+<!--        <property name="jdbcUrl" value="${db.url}"/>-->
+<!--        <property name="username" value="${db.user}"/>-->
+<!--        <property name="password" value="${db.password}"/>-->
+<!--    </bean>-->
+    <bean id="hikariDataSource" class="school21.spring.service.repositories.UsersRepositoryJdbcImpl.hikariDS"/>
+
+    <bean id="usersRepositoryJdbc" class="school21.spring.service.repositories.UsersRepositoryJdbcImpl">
+        <constructor-arg name="dataSource" ref="hikariDataSource"/>
+    </bean>
+
+    <bean id="DataSource" class="school21.spring.service.repositories.UsersRepositoryJdbcTemplateImpl.JDBCGenerator"/>
+
+    <bean id="usersRepositoryJdbcTemplate" class="school21.spring.service.repositories.UsersRepositoryJdbcTemplateImpl">
+        <constructor-arg name="dataSource" ref="DataSource"/>
+    </bean>
+
+</beans>
